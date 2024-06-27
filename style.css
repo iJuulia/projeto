@@ -57,6 +57,8 @@ main {
 
 #profile img {
   width: 112px;
+  border-radius: 50%;
+  outline: 3px solid var(--highlight-color);
 }
 
 #profile p {
