@@ -83,10 +83,17 @@ main {
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
+  /* "slide-out" é o keyframe no final do css. */
+  animation: slide-out 0.2s;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 .light #switch button {
-  right: 0;
+  /* "slide-in" é o keyframe no final do css. "forwards" faz com que ele não volte a posição inicial (left: 0) */
+  animation: slide-in 0.2s forwards;
 }
 
 #switch span {
@@ -164,5 +171,26 @@ footer {
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animações */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0;
   }
 }
