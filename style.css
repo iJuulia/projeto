@@ -41,9 +41,10 @@ body {
 }
 
 main {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   /* é possível usar o "margin: ... auto" para centralizar elementos "display: block"  */
-  margin: 56px auto 0px;
+  margin: 56px auto 0;
   padding: 0 24px;
 }
 
