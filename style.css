@@ -1,0 +1,155 @@
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --icon: url(./assets/moon-stars.svg);
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --icon: url(./assets/sun.svg);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+
+body {
+  /* "top" alinha no eixo y, "center" alinha no eixo x, "cover" ocupa todo o espaço visível */
+  /* ordem:
+  background: color image repeat position/size */
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+main {
+  width: 360px;
+  /* é possível usar o "margin: ... auto" para centralizar elementos "display: block"  */
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+
+#profile {
+  /* é possível usar o "text-align: center" se os filhos forem "display: inline" (mas não se for "display: block"), ainda que não seja texto */
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--icon) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.light #switch button {
+  right: 0;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--surface-color);
+  text-decoration: none;
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  /* -webkit- é para navegadores que não suportam o efeito */
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  display: flex;
+  padding: 24px 0;
+  font-size: 24px;
+  justify-content: center;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
